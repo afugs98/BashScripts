@@ -1,0 +1,28 @@
+
+#Gets the branch name
+function git-branch-name {
+  git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3
+}
+
+#Displays the output like a printf, to be appended
+function git-branch-prompt {
+  local branch=`git-branch-name`
+  if [ $branch ] ; then printf "::%s" $branch; fi
+}
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+#Git Stuff
+alias fd="git diff"
+alias fs="git status"
+alias fg="git pull"
+alias fa="git add"
+alias fc="git commit -m"
+alias fch="git checkout"
+alias fcb="git checkout -b"
+alias fe="git push"
+alias fv="git branch"
+alias fvd="git branch -d"
+alias subup="git submodule update --init --recursive"
