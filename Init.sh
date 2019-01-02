@@ -1,7 +1,11 @@
 outfile=~/.bash_profile
 dividerString="!---!"
 
+### Colors Setup
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NOCOLOR='\033[0m'
 
 function InitScripts {
 
@@ -32,29 +36,30 @@ function InitScripts {
 
         #See if the text in question exists in the file
         if [[ $bashProfStandin == *"$mashOfCharactersToMatchInFile"* ]]; then
-          echo "Setup of complete: $filename"
+          printf "Setup of complete: ${GREEN}$filename${NOCOLOR}\n"
         else
-          echo "File Not Contains the Initializer - Need to add the info to the file"
+          printf "File Not Initilized - Adding ${RED}$filename${NOCOLOR}\n"
 
           for i in {1..3}; do
              echo "${arr[$i]}" >> $outfile
           done
-
-
-
-
         fi
-
-
       fi
     fi
 
 
   done
-  
+
   #Reload the current bash profile
-  source ~/.bash_profile
+  # source ~/.bash_profile
+
+  . ~/.bash_profile
   echo "Reloading..."
+
+
+  printf "I ${GREEN}love${NOCOLOR} Stack Overflow\n"
 }
 
 InitScripts
+
+#Must be startedt eith <<. ./Init.sh>> from the command line!!! If not autoreload does not work
