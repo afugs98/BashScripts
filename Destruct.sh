@@ -1,4 +1,13 @@
-outfile=~/.bash_profile
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        echo "Destroying Linux Setup"
+        outfile=~/.bash_rc
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "Destroying Mac OS Setup"
+        outfile=~/.bash_profile
+else
+        echo "Unknown OS Type :("
+        exit
+fi
 dividerString="!---!"
 
 ### Colors Setup
@@ -47,11 +56,11 @@ function DestructScripts {
   #   fi
   # done
 
-  > ~/.bash_profile
-  source ~/.bash_profile
+  > $outfile
+  source $outfile
   echo "Reloading..."
   exec bash
-  source ~/.bash_profile
+  source $outfile
 }
 
 DestructScripts
