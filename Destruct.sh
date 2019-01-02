@@ -1,6 +1,6 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         echo "Destroying Linux Setup"
-        outfile=~/.bash_rc
+        outfile=~/.bashrc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "Destroying Mac OS Setup"
         outfile=~/.bash_profile
@@ -65,4 +65,4 @@ function DestructScripts {
 
 DestructScripts
 
-#Must be startedt eith <<. ./Init.sh>> from the command line!!! If not autoreload does not work
+#Must be startedt with <<. ./Destruct.sh>> from the command line!!! If not autoreload does not work

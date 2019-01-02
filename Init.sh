@@ -1,6 +1,6 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         echo "Set OS to Linux"
-        outfile=~/.bash_rc
+        outfile=~/.bashrc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "Set OS to MAC OS"
         outfile=~/.bash_profile
