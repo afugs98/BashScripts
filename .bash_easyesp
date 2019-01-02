@@ -1,3 +1,10 @@
+# if [ -f ~/BashScripts/.bash_easyesp ]; then
+#   source ~/BashScripts/.bash_easyesp
+# fi
+
+#!---!
+
+
 #If the disk image is not mounted do that first
 
 if ! mount | grep "on /Volumes/case-sensitive" > /dev/null; then

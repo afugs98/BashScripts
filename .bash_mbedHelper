@@ -1,3 +1,9 @@
+# if [ -f ~/BashScripts/.bash_mbedHelper ]; then
+#   source ~/BashScripts/.bash_mbedHelper
+# fi
+
+#!---!
+
 #mbed utilities
 alias mbs="screen /dev/tty.usbmodem144103 115200"
 alias mbc="mbed compile"

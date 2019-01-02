@@ -1,3 +1,9 @@
+# if [ -f ~/BashScripts/.bash_musicControl ]; then
+#   source ~/BashScripts/.bash_musicControl
+# fi
+
+#!---!
+
 musicModeActive=false
 
 function music {

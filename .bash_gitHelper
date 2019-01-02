@@ -1,3 +1,9 @@
+# if [ -f ~/BashScripts/.bash_gitHelper ]; then
+#   source ~/BashScripts/.bash_gitHelper
+# fi
+
+#!---!
+
 
 #Gets the branch name
 function git-branch-name {
