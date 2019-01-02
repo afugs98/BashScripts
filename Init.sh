@@ -1,4 +1,14 @@
-outfile=~/.bash_profile
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        echo "Set OS to Linux"
+        outfile=~/.bash_rc
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "Set OS to MAC OS"
+        outfile=~/.bash_profile
+else
+        echo "Unknown OS Type :("
+        exit
+fi
+
 dividerString="!---!"
 
 ### Colors Setup

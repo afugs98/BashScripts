@@ -52,7 +52,6 @@ function DestructScripts {
   echo "Reloading..."
   exec bash
   source ~/.bash_profile
-
 }
 
 DestructScripts
