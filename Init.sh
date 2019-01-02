@@ -46,12 +46,7 @@ function InitScripts {
         fi
       fi
     fi
-
-
   done
-
-  #Reload the current bash profile
-  # source ~/.bash_profile
 
   . ~/.bash_profile
   echo "Reloading..."
