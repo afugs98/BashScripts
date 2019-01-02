@@ -28,7 +28,6 @@ function InitScripts {
          for i in {1..3}; do
             currentLineNoWhiteSpace=$(echo "${arr[$i]}" | sed 's/ //g' | xargs)
             printf -v mashOfCharactersToMatchInFile "%s%s" $mashOfCharactersToMatchInFile $currentLineNoWhiteSpace
-
         done
 
         #Gather entire bash profile into single string no whitespace
@@ -36,7 +35,7 @@ function InitScripts {
 
         #See if the text in question exists in the file
         if [[ $bashProfStandin == *"$mashOfCharactersToMatchInFile"* ]]; then
-          printf "Setup of complete: ${GREEN}$filename${NOCOLOR}\n"
+          printf "Setup complete: ${GREEN}$filename${NOCOLOR}\n"
         else
           printf "File Not Initilized - Adding ${RED}$filename${NOCOLOR}\n"
 
@@ -50,9 +49,6 @@ function InitScripts {
 
   . ~/.bash_profile
   echo "Reloading..."
-
-
-  printf "I ${GREEN}love${NOCOLOR} Stack Overflow\n"
 }
 
 InitScripts
