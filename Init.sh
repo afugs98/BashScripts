@@ -1,5 +1,3 @@
-echo "hello world" >> DICKS.sh
-
 outfile=~/.bash_profile
 dividerString="!---!"
 
@@ -12,16 +10,10 @@ function InitScripts {
     #First check the file has a valid "auto_add" feaute
     if grep -q $dividerString "$filename"; then
 
-      # echo "we where"
-
       #Split the file on its comments since they are always commented
       oldIFS="$IFS"
       IFS=$'\n#' arr=($(<"$filename"))
       IFS="$oldIFS"
-      # echo "${arr[1]}"
-      # echo "${arr[2]}"
-      # echo "${arr[3]}"
-      # echo "${arr[4]}"
 
       if [[ "${arr[4]}" =~ $dividerString ]]
       then
@@ -56,7 +48,13 @@ function InitScripts {
 
       fi
     fi
+
+
   done
+  
+  #Reload the current bash profile
+  source ~/.bash_profile
+  echo "Reloading..."
 }
 
 InitScripts
