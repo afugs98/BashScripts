@@ -4,9 +4,6 @@
 
 #!---!
 
-
-
-
 function make-books-options {
   local books=`ls /Users/afuglem/Books;`
   bookChoices=( $books )
