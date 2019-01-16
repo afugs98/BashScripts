@@ -57,7 +57,7 @@ function InitScripts {
     fi
   done
 
-  . ~/.bash_profile
+  . ~/.$outfile
   echo "Reloading..."
 }
 
