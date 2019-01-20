@@ -90,6 +90,8 @@ export PATH="/Volumes/case-sensitive/esp-open-sdk/xtensa-lx106-elf/bin:$PATH"
 
 export PATH=$PATH:~/esp/xtensa-esp32-elf/bin
 export IDF_PATH=~/esp/esp-idf
+export MDF_PATH=~/esp/esp-mdf
+
 
 #Esp Utilities
 alias che="ls /dev/tty.*"
