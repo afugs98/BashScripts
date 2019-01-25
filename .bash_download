@@ -6,20 +6,34 @@ gitRepoLinks=(
 "https://github.com/afugs98/BashScripts.git"
 "https://github.com/afugs98/esp-homekit-demo.git"
 "https://github.com/afugs98/myECEHomework.git"
+"https://github.com/afugs98/ece368.git"
+"https://github.com/afugs98/esp-mdf.git"
  )
 
- mkdir gitDownloadScripts
+tempGitDir="gitDownloadScripts"
+
+ mkdir $tempGitDir
 
 
 for opt in "${gitRepoLinks[@]}"; do
-  echo $opt
+
   # Removes the https://github.com part since that is universal
   filepath=${opt%/*}
 
   filenameWithExtension=${opt##*/}
   gitExtenstion=${filenameWithExtension##*.}
-  filename=${filenameWithExtension%.*}
+  filename=${filenameWithExtension%.*}.sh
 
-  echo;echo filepath=${filepath};echo filename=${filename};echo extension=${gitExtenstion}
+  echo Downloading $filenameWithExtension
+  # echo;echo filepath=${filepath};echo filename=${filename};echo extension=${gitExtenstion}
+
+  echo "#!/bin/bash" >> $tempGitDir/$filename
+  echo "cd ~/TMPPPP" >> $tempGitDir/$filename
+  echo "git clone --recursive $opt" >> $tempGitDir/$filename
+
+  chmod +x $tempGitDir/$filename
+  open -a Terminal.app $tempGitDir/$filename
 
 done
+
+# rm -rf $tempGitDir
