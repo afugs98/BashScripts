@@ -1,15 +1,16 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         echo "Set OS to Linux"
-        outfile=~/.bashrc
+        bashProfileOrRc=~/.bashrc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "Set OS to MAC OS"
-        outfile=~/.bash_profile
+        bashProfileOrRc=~/.bash_profile
 else
         echo "Unknown OS Type :("
         exit
 fi
 
 dividerString="!---!"
+collectiveBashFile=~/BashScripts/.bash_loader
 
 ### Colors Setup
 
@@ -41,7 +42,7 @@ function InitScripts {
         done
 
         #Gather entire bash profile into single string no whitespace
-        bashProfStandin=$(tr -d ' \t\n\r\f' <$outfile)
+        bashProfStandin=$(tr -d ' \t\n\r\f' <$collectiveBashFile)
 
         #See if the text in question exists in the file
         if [[ $bashProfStandin == *"$mashOfCharactersToMatchInFile"* ]]; then
@@ -50,18 +51,22 @@ function InitScripts {
           printf "File Not Initilized - Adding ${RED}$filename${NOCOLOR}\n"
 
           for i in {1..3}; do
-             echo "${arr[$i]}" >> $outfile
+             echo "${arr[$i]}" >> $collectiveBashFile
           done
         fi
       fi
     fi
   done
 
-  . $outfile
+  echo "source $collectiveBashFile" >> $bashProfileOrRc
+
+  . $bashProfileOrRc
   echo "Reloading..."
 
   echo "Downloading git repos..."
-  
+
+  # This calls the script that generates the terminal windows to download git
+  # repos into the folder I want them
   if [ -f ~/BashScripts/.bash_download ]; then
     source ~/BashScripts/.bash_download
   fi

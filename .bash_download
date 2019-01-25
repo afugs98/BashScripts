@@ -1,7 +1,3 @@
-chmod +x ~/BashScripts/GitDownloader.sh
-open -a Terminal.app ~/BashScripts/GitDownloader.sh
-
-
 gitRepoLinks=(
 "https://github.com/afugs98/BashScripts.git"
 "https://github.com/afugs98/esp-homekit-demo.git"
