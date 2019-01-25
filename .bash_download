@@ -1,0 +1,25 @@
+chmod +x ~/BashScripts/GitDownloader.sh
+open -a Terminal.app ~/BashScripts/GitDownloader.sh
+
+
+gitRepoLinks=(
+"https://github.com/afugs98/BashScripts.git"
+"https://github.com/afugs98/esp-homekit-demo.git"
+"https://github.com/afugs98/myECEHomework.git"
+ )
+
+ mkdir gitDownloadScripts
+
+
+for opt in "${gitRepoLinks[@]}"; do
+  echo $opt
+  # Removes the https://github.com part since that is universal
+  filepath=${opt%/*}
+
+  filenameWithExtension=${opt##*/}
+  gitExtenstion=${filenameWithExtension##*.}
+  filename=${filenameWithExtension%.*}
+
+  echo;echo filepath=${filepath};echo filename=${filename};echo extension=${gitExtenstion}
+
+done
