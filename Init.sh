@@ -57,8 +57,14 @@ function InitScripts {
     fi
   done
 
-  . ~/.$outfile
+  . $outfile
   echo "Reloading..."
+
+  echo "Downloading git repos..."
+  
+  if [ -f ~/BashScripts/.bash_download ]; then
+    source ~/BashScripts/.bash_download
+  fi
 }
 
 InitScripts
