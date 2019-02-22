@@ -11,7 +11,7 @@ count = 0
 for root, dirs, files in os.walk(DataPath):
     for file in files:
         if file.endswith(".pdf"):
-            print(file + '--------')
+            # print(file + '--------')
             pattern = r'[\d]+'
             single = re.search(pattern, file)
 
@@ -24,7 +24,7 @@ for root, dirs, files in os.walk(DataPath):
         fileDict = dict(zip(indicies, values))
 
 
-print(fileDict)
+# print(fileDict)
 
 sortedKeys = []
 for key, value in fileDict.items():
@@ -33,10 +33,12 @@ for key, value in fileDict.items():
 
 sortedKeys = sorted(sortedKeys)
 for i in sortedKeys:
-    print(i)
+    print('  ' + i)
 
 # print("  {}  ".format(int(key)))
 
-numberToOpen = input("What is the number to open: ")
+numberToOpen = input(" Which homework number? ")
+if numberToOpen not in fileDict:
+    raise KeyError('Invalid key :(')
 
 os.system("open "+fileDict[numberToOpen])
