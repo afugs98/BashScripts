@@ -20,7 +20,8 @@ NOCOLOR='\033[0m'
 
 function InitScripts {
 
-  for filename in .bash_*; do
+  for filename in .bash_[^l]*; do
+    # Does this regex to ignore sourcing the collective file
 
     #First check the file has a valid "auto_add" feaute
     if grep -q $dividerString "$filename"; then
@@ -32,6 +33,7 @@ function InitScripts {
 
       if [[ "${arr[4]}" =~ $dividerString ]]
       then
+
          #Make an array to store the concatinated string
          mashOfCharactersToMatchInFile=""
 
