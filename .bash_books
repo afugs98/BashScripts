@@ -17,7 +17,7 @@ PS3="Book choice: "
     done
   done
 
-  open /Users/afuglem/Books/$bookChoice
+  open -n /Users/afuglem/Books/$bookChoice
 }
 
 

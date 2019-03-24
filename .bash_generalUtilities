@@ -24,7 +24,4 @@ alias rlb=". ~/.bash_profile"
 alias cl="clear && clear"
 alias nt="open -a /Applications/Utilities/Terminal.app ."
 alias lock="pmset displaysleepnow"
-alias news="open -a /Applications/Utilities/Terminal.app ."
-
-
- 
+alias news="open -a /Applications/Utilities/Terminal.app . && exit"
