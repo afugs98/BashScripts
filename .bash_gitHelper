@@ -32,3 +32,8 @@ alias fe="git push"
 alias fv="git branch"
 alias gb="git branch"
 alias subup="git submodule update --init --recursive"
+alias blog="git-show-better-log"
+
+function git-show-better-log {
+  git log --pretty=format:"%ad - %h - %b" --author="Alec Fuglem" --date=format:'%Y-%m-%d %H:%M' | head
+}
