@@ -1,3 +1,46 @@
+#!/bin/bash
+
+function InitScripts {
+
+  currentFullDirPath="$( cd "$(dirname "$0")" ; pwd -P )"
+
+  # echo $currentFullDirPath
+
+  find $currentFullDirPath -type f -iname "Bash*.sh" -maxdepth 1
+
+  # for filename in "$currentFullDirPath"; do
+  #
+  #   echo $filename
+  #
+  # done
+
+
+  # echo "pwd: `pwd`"
+  # echo "\$0: $0"
+  # echo "basename: `basename $0`"
+  # echo "dirname: `dirname $0`"
+  # # echo "dirname/readlink: $(dirname $(readlink -f $0))"
+  # echo "dirname/readlink: "$( cd "$(dirname "$0")" ; pwd -P )""
+
+}
+
+InitScripts
+
+exit 1
+
+#Must be startedt eith <<. ./Init.sh>> from the command line!!! If not autoreload does not work
+
+
+
+
+################## All old Init code is below #################
+
+
+
+
+
+
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         echo "Set OS to Linux"
         bashProfileOrRc=~/.bashrc
