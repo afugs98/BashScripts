@@ -19,7 +19,7 @@ else
 music
 
 function get-song-info {
-  osascript AppleScripts/GetSongInfoV2.scpt 2>/dev/null | cut -d":" -f 2
+  osascript ~/BashScripts/AppleScripts/GetSongInfoV2.scpt 2>/dev/null | cut -d":" -f 2
 }
 
 function handle-next-song {
@@ -42,4 +42,4 @@ alias nx=handle-next-song
 alias nxHandlerNo="osascript -e 'tell app \"Spotify\" to next track'"
 alias nxHandlerGi="osascript -e 'tell app \"Spotify\" to next track' && gi"
 alias pv="osascript -e 'tell app \"Spotify\" to previous track' && gi"
-alias gi="osascript AppleScripts/GetSongInfoV2.scpt"
+alias gi="osascript ~/BashScripts/AppleScripts/GetSongInfoV2.scpt"
