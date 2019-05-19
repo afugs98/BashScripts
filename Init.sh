@@ -1,30 +1,38 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NOCOLOR='\033[0m'
+
 function InitScripts {
 
-  currentFullDirPath="$( cd "$(dirname "$0")" ; pwd -P )"
+  currentFullDirPath=$( cd "$(dirname "$0")" ; pwd -P )
+  outputLoaderFile="zzzz_Toasting.tst"
 
-  # echo $currentFullDirPath
+  # This is where it gets all the files that are "Bash......." to import, done this way to onyl get current dir
+  bashSetupFiles=$(find $currentFullDirPath -type f -iname "Bash*.sh" -maxdepth 1)
 
-  find $currentFullDirPath -type f -iname "Bash*.sh" -maxdepth 1
+  # Tests if the loader file exist and creates it if it doesn't
+  test -e ${outputLoaderFile} || touch ${outputLoaderFile}
 
-  # for filename in "$currentFullDirPath"; do
-  #
-  #   echo $filename
-  #
-  # done
+  for currentFile in $bashSetupFiles; do # Not recommended, will break on whitespace
 
+    if grep -qxF 'if [ -f '$currentFile' ]; then' ${outputLoaderFile}; then
 
-  # echo "pwd: `pwd`"
-  # echo "\$0: $0"
-  # echo "basename: `basename $0`"
-  # echo "dirname: `dirname $0`"
-  # # echo "dirname/readlink: $(dirname $(readlink -f $0))"
-  # echo "dirname/readlink: "$( cd "$(dirname "$0")" ; pwd -P )""
+      printf "${GREEN}Setup Complete for ${NOCOLOR}""$currentFile\n"
+    else
+      printf "${RED}Setting up ${NOCOLOR}""$currentFile\n"
+      echo 'if [ -f '$currentFile' ]; then' >> $outputLoaderFile
+      echo -e '\tsource '$currentFile >> $outputLoaderFile
+      echo 'fi' >> $outputLoaderFile
 
+    fi
+  done
 }
 
 InitScripts
+
+
 
 exit 1
 
@@ -107,6 +115,10 @@ function InitScripts {
 
   . $bashProfileOrRc
   echo "Reloading..."
+
+
+  # This is where the script then calls the git downloader
+
 
   echo "Downloading git repos..."
 
