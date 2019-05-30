@@ -8,7 +8,7 @@ gitRepoLinks=(
 
 tempGitDir="gitDownloadScripts"
 
- mkdir $tempGitDir
+ mkdir -p $tempGitDir
 
 
 for opt in "${gitRepoLinks[@]}"; do

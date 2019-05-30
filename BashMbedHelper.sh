@@ -5,7 +5,7 @@
 #!---!
 
 #mbed utilities
-alias mbs="screen /dev/tty.usbmodem144103 115200"
+alias mbs="screen /dev/tty.usbmodem1462103 115200"
 alias mbc="mbed compile"
 alias mbu="cp BUILD/NUCLEO*/GCC_ARM/*.bin /Volumes/NODE*"
 alias mbcu="mbc && mbu"

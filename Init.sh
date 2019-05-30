@@ -18,7 +18,7 @@ NOCOLOR='\033[0m'
 function InitScripts {
 
   currentFullDirPath=$( cd "$(dirname "$0")" ; pwd -P )
-  outputLoaderFile=~/BashScripts/zzzz_Toasting.tst
+  outputLoaderFile=~/BashScripts/.bash_tmp_loader
 
   # This is where it gets all the files that are "Bash......." to import, done this way to onyl get current dir
   bashSetupFiles=$(find $currentFullDirPath -type f -iname "Bash*.sh" -maxdepth 1)
@@ -50,7 +50,7 @@ function InitScripts {
   echo 'source '$outputLoaderFile >> $bashProfileOrRc
 
   echo "Reloading..."
-  . $bashProfileOrRc
+  source ${bashProfileOrRc}
 
   # This is where the script then calls the git downloader
 
