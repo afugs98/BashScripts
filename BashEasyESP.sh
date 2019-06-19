@@ -8,8 +8,10 @@
 #If the disk image is not mounted do that first
 
 if ! mount | grep "on /Volumes/case-sensitive" > /dev/null; then
+  if [ -f /Users/afuglem/esp/case-sensitive.dmg ]; then
     hdiutil attach /Users/afuglem/esp/case-sensitive.dmg > /dev/null
     echo "case-sensitive.dmg was mounted"
+  fi
 fi
 
 function run-easy-esp {

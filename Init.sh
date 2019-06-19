@@ -47,20 +47,30 @@ function InitScripts {
 
   # Now that the loader is ready, add to the .bash_profile/rc
 
-  echo 'source '$outputLoaderFile >> $bashProfileOrRc
+  # if grep -qxF "'source '$outputLoaderFile" ${bashProfileOrRc}; then
+  #   echo "IT EXISTS"
+  # fi
+
+  if grep -Fxq "source ${outputLoaderFile}" ${bashProfileOrRc}
+  then
+    printf "${GREEN}Included loader${NOCOLOR}\n"
+  else
+    printf "${RED}Adding bash loader to profile/rc...${NOCOLOR}\n"
+    echo 'source '$outputLoaderFile >> $bashProfileOrRc
+  fi
 
   echo "Reloading..."
-  source ${bashProfileOrRc}
-
-  # This is where the script then calls the git downloader
-
-  echo "Downloading git repos..."
-
-  # This calls the script that generates the terminal windows to download git
-  # repos into the folder I want them
-  if [ -f ~/BashScripts/.bash_download ]; then
-    source ~/BashScripts/.bash_download
-  fi
+  . $bashProfileOrRc
+  #
+  # # This is where the script then calls the git downloader
+  #
+  # echo "Downloading git repos..."
+  #
+  # # This calls the script that generates the terminal windows to download git
+  # # repos into the folder I want them
+  # if [ -f ~/BashScripts/.bash_download ]; then
+  #   source ~/BashScripts/.bash_download
+  # fi
 }
 
 InitScripts
