@@ -1,3 +1,4 @@
 gitDownloadScripts/
 .bash_loader
 .DS_Store
+.bash_tmp_loader
