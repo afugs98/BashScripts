@@ -88,7 +88,7 @@ export PATH="/Volumes/case-sensitive/esp-open-sdk/xtensa-lx106-elf/bin:$PATH"
 
 export PATH=$PATH:~/esp/xtensa-esp32-elf/bin
 export IDF_PATH=~/esp/esp-idf
-export MDF_PATH=~/esp/esp-mdf
+# export MDF_PATH=~/esp/esp-mdf
 
 
 #Esp Utilities
@@ -97,5 +97,6 @@ alias mke="make erase_flash"
 alias mk="make"
 alias mkf="make flash"
 alias mkm="make monitor"
+
 
 alias easy="run-easy-esp"

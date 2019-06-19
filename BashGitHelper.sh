@@ -15,7 +15,7 @@ function git-branch-prompt {
   local branch=`git-branch-name`
   if [ $branch ] ; then printf "::%s" $branch; fi
 }
-# 
+#
 # if [ -f ~/.git-completion.bash ]; then
 #   . ~/.git-completion.bash
 # fi
@@ -25,6 +25,7 @@ alias fd="git diff"
 alias fs="git status"
 alias fg="git pull"
 alias fa="git add"
+alias fb="git branch"
 alias fc="git commit -m"
 alias fch="git checkout"
 alias fcb="git checkout -b"
