@@ -61,16 +61,16 @@ function InitScripts {
 
   echo "Reloading..."
   . $bashProfileOrRc
-  #
-  # # This is where the script then calls the git downloader
-  #
-  # echo "Downloading git repos..."
-  #
-  # # This calls the script that generates the terminal windows to download git
-  # # repos into the folder I want them
-  # if [ -f ~/BashScripts/.bash_download ]; then
-  #   source ~/BashScripts/.bash_download
-  # fi
+
+  # This is where the script then calls the git downloader
+
+  echo "Downloading git repos..."
+
+  # This calls the script that generates the terminal windows to download git
+  # repos into the folder I want them
+  if [ -f ~/BashScripts/.bash_download ]; then
+    source ~/BashScripts/.bash_download
+  fi
 }
 
 InitScripts
