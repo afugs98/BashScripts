@@ -23,9 +23,8 @@ function get-song-info {
 }
 
 function handle-next-song {
-  if [ "$musicModeActive" = true ] ; then
+  if [ "$musicModeActive" = false ] ; then
     nxHandlerNo
-
   else
     nxHandlerGi
   fi
@@ -39,7 +38,7 @@ function put-song-in-ps {
 #Spotiofy Utilities
 alias gi="osascript ~/BashScripts/AppleScripts/GetSongInfoV2.scpt"
 alias plp="osascript -e 'tell app \"Spotify\" to playpause' && gi"
-alias nx="handle-next-song && gi"
+alias nx="handle-next-song"
 alias nxHandlerNo="osascript -e 'tell app \"Spotify\" to next track'"
 alias nxHandlerGi="osascript -e 'tell app \"Spotify\" to next track' && gi"
 alias pv="osascript -e 'tell app \"Spotify\" to previous track' && gi"
