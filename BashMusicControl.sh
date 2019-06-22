@@ -6,6 +6,14 @@
 
 musicModeActive=false
 
+#Spotiofy Utilities
+alias gi="osascript ~/BashScripts/AppleScripts/GetSongInfoV2.scpt"
+alias plp="osascript -e 'tell app \"Spotify\" to playpause' && gi"
+alias nx="handle-next-song"
+alias nxHandlerNo="osascript -e 'tell app \"Spotify\" to next track'"
+alias nxHandlerGi="osascript -e 'tell app \"Spotify\" to next track' && gi"
+alias pv="osascript -e 'tell app \"Spotify\" to previous track' && gi"
+
 function music {
   if [ "$musicModeActive" = false ] ; then
       musicModeActive=true
@@ -22,6 +30,11 @@ function get-song-info {
   osascript ~/BashScripts/AppleScripts/GetSongInfoV2.scpt 2>/dev/null | cut -d":" -f 2
 }
 
+function put-song-in-ps {
+  local info=`get-song-info`
+  if [ "$info" ] ; then printf "::%s" "$info"; fi
+}
+
 function handle-next-song {
   if [ "$musicModeActive" = false ] ; then
     nxHandlerNo
@@ -29,16 +42,3 @@ function handle-next-song {
     nxHandlerGi
   fi
 }
-
-function put-song-in-ps {
-  local info=`get-song-info`
-  if [ "$info" ] ; then printf "::%s" "$info"; fi
-}
-
-#Spotiofy Utilities
-alias gi="osascript ~/BashScripts/AppleScripts/GetSongInfoV2.scpt"
-alias plp="osascript -e 'tell app \"Spotify\" to playpause' && gi"
-alias nx="handle-next-song"
-alias nxHandlerNo="osascript -e 'tell app \"Spotify\" to next track'"
-alias nxHandlerGi="osascript -e 'tell app \"Spotify\" to next track' && gi"
-alias pv="osascript -e 'tell app \"Spotify\" to previous track' && gi"
